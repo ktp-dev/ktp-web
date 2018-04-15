@@ -1,0 +1,25 @@
+version: '2'
+services:
+  ktp_db:
+    extends:
+      file: docker-compose.yml
+      service: ktp_db
+  ktp_website:
+    extends:
+      file: docker-compose.yml
+      service: ktp_website
+    ports:
+      - "7000:7000"
+    volumes:
+      - ..:/usr/src/app
+    command: sh -c "yarn install && nodemon app.js"
+    environment:
+      - DEBUG
+      - APIWORK
+      - MAILCHIMP_TOKEN
+      - HOST
+      - DEPLOYMENT_SECRET
+      - AWS_ACCESS_KEY_ID
+      - AWS_SECRET_ACCESS_KEY
+    links:
+      - ktp_db

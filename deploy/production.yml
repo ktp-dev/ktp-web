@@ -1,0 +1,21 @@
+version: '2'
+services:
+  ktp_nginx:
+    extends:
+      file: docker-compose.yml
+      service: ktp_nginx
+  ktp_db:
+    extends:
+      file: docker-compose.yml
+      service: ktp_db
+    volumes:
+      - /data/mongodb:/data/db
+  ktp_website:
+    extends:
+      file: docker-compose.yml
+      service: ktp_website
+    links:
+      - ktp_db
+    env_file:
+      - production.env
+
