@@ -4,5 +4,5 @@ export default {
     LOGIN: '/v1/auth/login',
     LOGOUT: '/v1/auth/logout',
     PROFILE: '/v1/user/profile',
-    ADMIN_MODELS: '/v1/admin/model',
+    ADMIN_MODELS: '/v1/admin/model'
 };

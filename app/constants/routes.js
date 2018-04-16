@@ -6,5 +6,5 @@ export default {
     PROFILE: '/profile',
     DASHBOARD: '/dashboard',
     ADMIN: '/admin',
-    ADMIN_PORTAL: '/portal/admin',
+    ADMIN_PORTAL: '/portal/admin'
 };

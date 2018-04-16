@@ -1,5 +1,6 @@
 var router = require('express').Router(),
-    User = require('../../db/model/User.js');
+    User = require('../../db/model/User.js'),
+    Responses = require('../../responses/api/index.js');
 
 const models = {
     Users: User

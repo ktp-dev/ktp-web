@@ -10,6 +10,6 @@ export function getUserMetadata(userData) {
     return {
         isLoggedIn: userData.isLoggedIn === true,
         isEmailVerified: userData.isEmailVerified === true,
-        isAdmin: getGroup(userData, 'admin'),
+        isAdmin: getGroup(userData, 'admin')
     };
 }
