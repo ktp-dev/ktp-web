@@ -15,8 +15,8 @@ Made with :heart: by our brothers.
 
 1. [Get Docker](https://docs.docker.com/engine/getstarted/step_one/#/step-1-get-docker)
 2. [Get Docker Compose](https://docs.docker.com/compose/install/)
-4. Clone this repo: `git clone https://github.com/ktp-dev/website`
-4. Change directory to the deploy repo: `cd website/deploy/`
+4. Clone this repo: `git clone https://github.com/ktp-dev/ktp-web`
+4. Change directory to the deploy repo: `cd ktp-web/deploy/`
 5. Start whatever environment you want
     - Development
         - `docker-compose -f development.yml up`
@@ -39,7 +39,7 @@ When working exclusively on backend, you don't want to wait for Webpack to reloa
 `APIWORK=true docker-compose -f development.yml up -d`
 
 ## Contributing
-1. Clone the repository: `git clone git@github.com:ktp/ktp-website.git`
+1. Clone the repository: `git clone git@github.com:ktp-dev/ktp-web.git`
 2. Create a branch locally for your feature: `git branch my-feature`
 3. Checkout your branch: `git checkout my-feature`  
     ----- _to branch and checkout in one command:_ `git checkout -b my-feature`
