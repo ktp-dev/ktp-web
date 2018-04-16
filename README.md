@@ -19,10 +19,10 @@ Made with :heart: by our brothers.
 4. Change directory to the deploy repo: `cd ktp-web/deploy/`
 5. Start whatever environment you want
     - Development
-        - `docker-compose -f development.yml up`
+        - `docker-compose -f development.yml up -d`
         - **Your git repo will be linked to the development environment, so your local changes will be reflected with a container restart**
     - Production (More env data required)
-        - `docker-compose -f production.yml up`
+        - `docker-compose -f production.yml up -d`
         - **NOTE: This takes care of setting up NGINX AND LetsEncrypt with the appropriate hosts and autorenewal**
 6. Access `http://localhost:7000` and start developing!
 
