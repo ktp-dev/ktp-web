@@ -2859,9 +2859,15 @@ hash.js@^1.0.0, hash.js@^1.0.3:
     inherits "^2.0.3"
     minimalistic-assert "^1.0.0"
 
-hashtable-patch-valeriansaliou@2.1.5:
+hashtable-patch-valeriansaliou@2.1.5, hashtable-patch-valeriansaliou@^2.1.5:
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/hashtable-patch-valeriansaliou/-/hashtable-patch-valeriansaliou-2.1.5.tgz#5068c6b922bbdb3c0f6bf62517d15c6b7fee14ed"
+  dependencies:
+    nan latest
+
+"hashtable@git+https://github.com/fabrice102/node-hashtable.git":
+  version "2.0.2"
+  resolved "git+https://github.com/fabrice102/node-hashtable.git#d302679cd455bf19acc9a3528c56687e8568f960"
   dependencies:
     nan latest
 
@@ -2878,7 +2884,7 @@ he@1.1.x:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/he/-/he-1.1.1.tgz#93410fd21b009735151f8868c2f271f3427e23fd"
 
-history@^4.5.1, history@^4.7.2:
+history@^4.7.2:
   version "4.7.2"
   resolved "https://registry.yarnpkg.com/history/-/history-4.7.2.tgz#22b5c7f31633c5b8021c7f4a8a954ac139ee8d5b"
   dependencies:
@@ -5133,15 +5139,15 @@ react-router-dom@^4.1.1:
     react-router "^4.2.0"
     warning "^3.0.0"
 
-react-router-redux@next:
-  version "5.0.0-alpha.6"
-  resolved "https://registry.yarnpkg.com/react-router-redux/-/react-router-redux-5.0.0-alpha.6.tgz#7418663c2ecd3c51be856fcf28f3d1deecc1a576"
+react-router-redux@^5.0.0-alpha.9:
+  version "5.0.0-alpha.9"
+  resolved "https://registry.yarnpkg.com/react-router-redux/-/react-router-redux-5.0.0-alpha.9.tgz#825431516e0e6f1fd93b8807f6bd595e23ec3d10"
   dependencies:
-    history "^4.5.1"
-    prop-types "^15.5.4"
-    react-router "^4.1.1"
+    history "^4.7.2"
+    prop-types "^15.6.0"
+    react-router "^4.2.0"
 
-react-router@^4.0.0, react-router@^4.1.1, react-router@^4.2.0:
+react-router@^4.0.0, react-router@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/react-router/-/react-router-4.2.0.tgz#61f7b3e3770daeb24062dae3eedef1b054155986"
   dependencies:
@@ -5916,6 +5922,10 @@ sshpk@^1.7.0:
     ecc-jsbn "~0.1.1"
     jsbn "~0.1.0"
     tweetnacl "~0.14.0"
+
+ssri@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/ssri/-/ssri-6.0.0.tgz#fc21bfc90e03275ac3e23d5a42e38b8a1cbc130d"
 
 "statuses@>= 1.3.1 < 2", statuses@~1.3.1:
   version "1.3.1"

@@ -48,7 +48,6 @@
         "file-loader": "^0.10.1",
         "fuse.js": "^3.0.5",
         "hashtable": "git+https://github.com/fabrice102/node-hashtable.git",
-        "hashtable-patch-valeriansaliou": "^2.1.5",
         "html": "^1.0.0",
         "html-webpack-plugin": "^2.28.0",
         "immutable": "^3.8.1",
