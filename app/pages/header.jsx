@@ -9,7 +9,7 @@ import { devices } from '../styles';
 import theme from '../styles/theme.js';
 import { getUserMetadata } from '../util/user.js';
 
-const HeaderLogoImage = require('../../static/icons/header-logo.png');
+const HeaderLogoImage = require('../../static/header-logo.png');
 const Favicon = null;
 
 /* Header Section */

@@ -5,8 +5,8 @@ import { Container } from '../components';
 import { devices } from '../styles';
 import { routes } from '../constants';
 
-const InstagramImg = require('../../static/icons/instagram.png');
-const FacebookImg = require('../../static/icons/facebook.png');
+const InstagramImg = require('../../static/instagram.png');
+const FacebookImg = require('../../static/facebook.png');
 
 /* Footer Style */
 const FooterWrapper = styled.div`
