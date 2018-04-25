@@ -1,0 +1,19 @@
+version: '2'
+services:
+  ktp_db:
+    extends:
+      file: docker-compose.yml
+      service: ktp_db
+  ktp_website:
+    extends:
+      file: docker-compose.yml
+      service: ktp_website
+    ports:
+      - "4000:4000"
+    volumes:
+      - ..:/usr/src/app
+    command: sh -c "yarn install && nodemon app.js"
+    environment:
+      - DEBUG
+    links:
+      - ktp_db

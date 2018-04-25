@@ -1,0 +1,28 @@
+version: '2'
+services:
+  ktp_db:
+    image: mongo
+    restart: always
+  ktp_website:
+    build:
+      context: ..
+    image: ktp_website
+    environment:
+      MONGO_HOSTNAME: ktp_db
+    restart: always
+  ktp_nginx:
+    image: jwilder/nginx-proxy
+    volumes:
+      - /etc/nginx/certs
+      - /etc/nginx/vhost.d
+      - /usr/share/nginx/html
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: always
+  ktp_nginx_letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always
