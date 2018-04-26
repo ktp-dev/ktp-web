@@ -5,7 +5,7 @@ cache:
   yarn: true
   directories:
   - node_modules
-script: node run test
+script: npm run test
 notifications:
   slack:
     secure:
