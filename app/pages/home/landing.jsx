@@ -7,7 +7,7 @@ const Wrapper = styled.div`
     background: ${props => props.theme.secondary};
     padding: 0;
     height: calc(100vh - 80px);
-    zIndex: 98;
+    zindex: 98;
 `;
 
 const Container = styled.div`
@@ -31,11 +31,11 @@ const Container = styled.div`
 `;
 
 const Text = styled.h2`
-    fontSize: 50px;
+    fontsize: 50px;
     color: white;
     text-align: center;
-    fontWeight: 500;
-    textAlign: center;
+    fontweight: 500;
+    textalign: center;
     padding: 0 10vw;
     margin: 5px 0;
 

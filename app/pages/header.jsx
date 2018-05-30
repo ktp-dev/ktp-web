@@ -31,8 +31,8 @@ const Wrapper = styled.div`
 
 const FlexWrapper = styled.div`
     display: flex;
-    alignItems: center;
-    justifyContent: center;
+    alignitems: center;
+    justifycontent: center;
     height: 90%;
     width: calc(100% - 72px);
     margin: 0 auto;
@@ -45,7 +45,7 @@ const FlexWrapper = styled.div`
 const Logo = styled.img`
     height: 50px;
     display: block;
-    paddingBottom: 5px;
+    paddingbottom: 5px;
 
     ${devices.small`
         height: 50px;
@@ -54,8 +54,8 @@ const Logo = styled.img`
 
 const NavContainer = styled.div`
     display: none;
-    alignItems: center;
-    justifyContent: flex-end;
+    alignitems: center;
+    justifycontent: flex-end;
     ${devices.tablet`
         ${props => (props.disableCompact ? 'display: flex' : '')};
     `};
@@ -63,34 +63,34 @@ const NavContainer = styled.div`
 
 const HeaderNavLink = styled(NavLink)`
     margin: auto;
-    marginLeft: 0;
+    marginleft: 0;
 `;
 
 const StyledNavLink = styled(NavLink)`
-    fontSize: 22px;
+    fontsize: 22px;
     padding: 2px 20px;
     //margin: 10px 0 10px 15px;
     color: ${props => props.color};
-    textDecoration: none;
+    textdecoration: none;
     transition: all 0.3s;
     text-transform: uppercase;
 
     &:hover {
-        textDecoration: underline;
+        textdecoration: underline;
     }
 `;
 
 const StyledALink = styled.a`
-    fontSize: 22px;
+    fontsize: 22px;
     padding: 2px 20px;
     //margin: 10px 0 10px 15px;
     color: ${props => props.color};
-    textDecoration: none;
+    textdecoration: none;
     transition: all 0.3s;
     text-transform: uppercase;
 
     &:hover {
-        textDecoration: underline;
+        textdecoration: underline;
     }
 `;
 
@@ -106,7 +106,7 @@ const Burger = styled.div`
     .bm-burger-bars {
         background: ${props => props.primaryColor};
         height: 15% !important;
-        borderRadius: 10px;
+        borderradius: 10px;
     }
 
     .bm-cross-button {
@@ -119,7 +119,7 @@ const Burger = styled.div`
     }
 
     .bm-menu {
-        backgroundColor: ${theme.primary};
+        backgroundcolor: ${theme.primary};
         padding: 2.5em 1.5em 0;
         font-size: 1.15em;
     }

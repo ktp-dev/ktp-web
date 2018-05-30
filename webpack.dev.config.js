@@ -14,6 +14,7 @@ var devConfig = {
         path: '/',
         filename: 'js/app.js'
     },
+    mode: 'development',
     devtool: 'source-map',
     resolve: {
         extensions: ['.js', '.jsx']

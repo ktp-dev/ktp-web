@@ -22,12 +22,12 @@ const CenteredContainer = styled.div`
 `;
 
 const SectionHeader = styled.h2`
-    fontSize: 42px;
+    fontsize: 42px;
     color: ${props => props.theme.highlight};
-    textTransform: uppercase;
+    texttransform: uppercase;
     text-align: center;
-    fontWeight: 500;
-    textAlign: center;
+    fontweight: 500;
+    textalign: center;
 
     ${devices.small`
     fontSize: 48px;
@@ -36,7 +36,7 @@ const SectionHeader = styled.h2`
 
 const SectionBody = styled.p`
     color: white;
-    fontSize: 16px;
+    fontsize: 16px;
     max-width: 600px;
 `;
 

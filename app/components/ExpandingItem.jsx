@@ -1,27 +1,29 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
-const Wrapper = styled.div`display: inline-block;`;
+const Wrapper = styled.div`
+    display: inline-block;
+`;
 
 const Header = styled.h3`
     display: inline-block;
     -webkit-margin-before: 0;
     -webkit-margin-after: 0;
-    marginTop: 0;
-    marginBottom: 0;
+    margintop: 0;
+    marginbottom: 0;
     color: ${props => props.color};
-    fontSize: 18px;
+    fontsize: 18px;
 `;
 
 const Body = styled.p`
-    paddingLeft: 25px;
-    paddingTop: 10px;
-    paddingBottom: 10px;
-    marginBottom: 5px;
+    paddingleft: 25px;
+    paddingtop: 10px;
+    paddingbottom: 10px;
+    marginbottom: 5px;
     -webkit-margin-before: 5px;
     -webkit-margin-after: 5px;
     color: ${props => props.color};
-    fontSize: 15px;
+    fontsize: 15px;
 `;
 
 const Flexbox = styled.div`
@@ -50,7 +52,7 @@ const Close = keyframes`
 
 const Slider = styled.div`
     overflow: hidden;
-    transformOrigin: top center;
+    transformorigin: top center;
 
     ${props =>
         props.open
@@ -69,21 +71,21 @@ const PlusWrapper = styled.div`
     position: relative;
     display: inline-block;
     margin: 0;
-    marginLeft: 10px;
+    marginleft: 10px;
     height: 15px;
     width: 15px;
-    zIndex: 10;
+    zindex: 10;
 `;
 
 const PlusLine = styled.div`
     display: inline-block;
     position: absolute;
-    zIndex: -1;
-    backgroundColor: ${props => props.color};
+    zindex: -1;
+    backgroundcolor: ${props => props.color};
     height: 10px;
     width: 2px;
     top: 4px;
-    transitionDuration: 0.3s;
+    transitionduration: 0.3s;
 
     ${props =>
         !props.vertical

@@ -7,19 +7,21 @@ import { routes } from '../constants';
 import { TabGroup, RoundedButton, Alert } from '../components';
 
 /* Containers */
-const Page = styled.div`margin: 80px auto 0 auto;`;
+const Page = styled.div`
+    margin: 80px auto 0 auto;
+`;
 
 const FormContainer = styled.div`
     width: 500px;
-    maxWidth: calc(100% - 40px);
-    minHeight: calc(100vh - 30px - 2rem - 80px);
+    maxwidth: calc(100% - 40px);
+    minheight: calc(100vh - 30px - 2rem - 80px);
     padding: 20px 0 50px;
     margin: 0 auto;
 `;
 
 const Flexer = styled.div`
     display: flex;
-    flexDirection: column;
+    flexdirection: column;
 `;
 
 const InputContainer = styled.div`
@@ -29,17 +31,19 @@ const InputContainer = styled.div`
         width: 100%;
         margin: 10px 0;
         padding: 8px;
-        fontSize: 1em;
+        fontsize: 1em;
     }
 `;
 
 const ButtonGroup = styled.div`
     display: flex;
-    flexDirection: row;
-    justifyContent: space-between;
+    flexdirection: row;
+    justifycontent: space-between;
 `;
 
-const AlertContainer = styled.div`marginTop: 30px;`;
+const AlertContainer = styled.div`
+    margintop: 30px;
+`;
 
 /* Login Component */
 class Login extends React.Component {

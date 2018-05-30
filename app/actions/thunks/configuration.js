@@ -8,49 +8,49 @@ export default class ConfigurationThunks {
 
             const token = localStorage.getItem('jwt');
 
-            return ConfigurationRequests.loadConfiguration(
-                token
-            ).then(response => {
-                if (response.status == 200) {
-                    response.json().then(json => {
-                        const { user, configuration } = json;
+            return ConfigurationRequests.loadConfiguration(token).then(
+                response => {
+                    if (response.status == 200) {
+                        response.json().then(json => {
+                            const { user, configuration } = json;
 
-                        const state = {
-                            configuration
-                        };
-
-                        if (user) {
-                            state.userData = {
-                                isEmailVerified: user.email_verified,
-                                isLoggedIn: true,
-                                isAdmin:
-                                    user.groups &&
-                                    user.groups.indexOf('admin') !== -1,
-                                user: {
-                                    name: user.full_name,
-                                    avatars: user.avatar,
-                                    ...user
-                                }
+                            const state = {
+                                configuration
                             };
-                        }
 
-                        dispatch({
-                            type: actions.LOAD_CONFIGURATION_SUCCESS,
-                            data: state,
-                            message: json.message
+                            if (user) {
+                                state.userData = {
+                                    isEmailVerified: user.email_verified,
+                                    isLoggedIn: true,
+                                    isAdmin:
+                                        user.groups &&
+                                        user.groups.indexOf('admin') !== -1,
+                                    user: {
+                                        name: user.full_name,
+                                        avatars: user.avatar,
+                                        ...user
+                                    }
+                                };
+                            }
+
+                            dispatch({
+                                type: actions.LOAD_CONFIGURATION_SUCCESS,
+                                data: state,
+                                message: json.message
+                            });
                         });
-                    });
-                } else {
-                    response.json().then(json => {
-                        dispatch({
-                            type: actions.LOAD_CONFIGURATION_ERROR,
-                            data: token,
-                            error: response.status,
-                            message: json.message
+                    } else {
+                        response.json().then(json => {
+                            dispatch({
+                                type: actions.LOAD_CONFIGURATION_ERROR,
+                                data: token,
+                                error: response.status,
+                                message: json.message
+                            });
                         });
-                    });
+                    }
                 }
-            });
+            );
         };
     }
 

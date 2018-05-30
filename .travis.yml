@@ -1,11 +1,4 @@
 language: node_js
 node_js:
 - stable
-cache:
-  yarn: true
-  directories:
-  - node_modules
-script: node run test
-notifications:
-  slack:
-    secure:
+script: yarn run test
