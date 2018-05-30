@@ -5,15 +5,15 @@ const InputField = styled.div`
     width: 100%;
     margin: 10px 0;
     display: flex;
-    flexDirection: column;
-    justifyContent: space-between;
+    flexdirection: column;
+    justifycontent: space-between;
 
     textarea {
         padding: 10px;
-        borderColor: rgb(215, 215, 215);
-        flexGrow: 1;
+        bordercolor: rgb(215, 215, 215);
+        flexgrow: 1;
         height: 120px;
-        borderRadius: 5px;
+        borderradius: 5px;
     }
 `;
 

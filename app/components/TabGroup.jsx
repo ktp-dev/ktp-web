@@ -4,36 +4,36 @@ import { devices } from '../styles';
 
 const Group = styled.div`
     display: flex;
-    flexDirection: row;
+    flexdirection: row;
     padding: 0;
     margin: 0;
 `;
 
 const TabItem = styled.div`
     flex: 1;
-    textAlign: center;
-    backgroundColor: ${props =>
+    textalign: center;
+    backgroundcolor: ${props =>
         props.active ? props.activeColor : 'transparent'};
     border: 3px solid ${props => props.activeColor};
-    borderRight: none;
+    borderright: none;
     color: ${props => (props.active ? 'white' : props.activeColor)};
     padding: 10px 0;
-    fontSize: 15px;
-    fontWeight: 500;
+    fontsize: 15px;
+    fontweight: 500;
 
     &:first-child {
-        borderTopLeftRadius: 20px;
-        borderBottomLeftRadius: 20px;
+        bordertopleftradius: 20px;
+        borderbottomleftradius: 20px;
     }
 
     &:last-child {
-        borderTopRightRadius: 20px;
-        borderBottomRightRadius: 20px;
-        borderRight: 3px solid ${props => props.activeColor};
+        bordertoprightradius: 20px;
+        borderbottomrightradius: 20px;
+        borderright: 3px solid ${props => props.activeColor};
     }
 
     &:hover {
-        backgroundColor: ${props => props.activeColor};
+        backgroundcolor: ${props => props.activeColor};
         color: white;
     }
 

@@ -16,6 +16,7 @@ let devConfig = {
         path: path.resolve('./build'),
         filename: 'js/app.js'
     },
+    mode: 'development',
     devtool: 'source-map',
     resolve: {
       modules: ['web_modules', 'node_modules', 'app', 'static'],
@@ -55,7 +56,7 @@ let devConfig = {
         // inject styles and javascript into index.html
         new HtmlWebpackPlugin({
             title: 'Webpack Build',
-            template: './app/index.html'
+            template: './app/index-dev.html'
         }),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': '"development"'
@@ -81,9 +82,13 @@ let buildConfig = {
         path: path.resolve('./build'),
         filename: 'js/app.js'
     },
+    mode: 'production',
     devtool: 'source-map',
     resolve: {
         extensions: ['.js', '.jsx']
+    },
+    optimization: {
+        minimize: true
     },
     module: {
         rules: [
@@ -123,10 +128,6 @@ let buildConfig = {
         }),
         new CleanWebpackPlugin(['build/logo.png', 'build/fonts', 'build/js', 'build/styles', 'build/index.html']),
         cssExtractor,
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
-            minimize: true
-        }),
         new CopyWebpackPlugin([
             { from: './static/icons/logo.png', to: './logo.png' },
             {context: './app/favicon/', from: '**/*', to: './favicon/'},

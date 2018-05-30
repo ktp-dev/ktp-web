@@ -21,8 +21,7 @@ module.exports = function(
                 .exec()
                 .then(user => {
                     if (user) {
-                        user
-                            .verifyToken(token)
+                        user.verifyToken(token)
                             .then(() => {
                                 verifyEmail(verifiedEmail, user)
                                     .then(() => {

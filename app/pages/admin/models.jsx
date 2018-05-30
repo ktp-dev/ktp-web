@@ -7,11 +7,13 @@ import { AdminThunks } from '../../actions';
 import { routes } from '../../constants';
 import ReactTable from 'react-table';
 
-const PagePulled = styled(PageContainer)`min-height: calc(100vh - 146px);`;
+const PagePulled = styled(PageContainer)`
+    min-height: calc(100vh - 146px);
+`;
 
 const Link = styled.a`
     &:hover {
-        textDecoration: underline;
+        textdecoration: underline;
     }
 `;
 

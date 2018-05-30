@@ -35,36 +35,36 @@ const Input = styled.input`
     position: relative;
     z-index: 1;
     width: 70%;
-    maxWidth: calc(100% - ${minButtonWidth});
+    maxwidth: calc(100% - ${minButtonWidth});
     height: 40px;
     color: ${props => props.primaryColor || '#E6E6E6'};
     border: 3px solid ${props => props.primaryColor || '#E6E6E6'};
-    borderTopLeftRadius: 8px;
-    borderBottomLeftRadius: 8px;
-    backgroundColor: ${props => props.secondaryColor || 'white'};
+    bordertopleftradius: 8px;
+    borderbottomleftradius: 8px;
+    backgroundcolor: ${props => props.secondaryColor || 'white'};
     padding: 10px;
-    fontSize: 16px;
+    fontsize: 16px;
 `;
 
 const Button = styled.button`
     width: 30%;
-    minWidth: ${minButtonWidth};
+    minwidth: ${minButtonWidth};
     height: 40px;
     top: 0px;
     left: -3px;
     position: relative;
-    fontSize: 18px;
+    fontsize: 18px;
     border: 3px solid ${props => props.primaryColor || '#E6E6E6'};
-    borderRight: 6px solid ${props => props.primaryColor || '#E6E6E6'};
-    borderTopRightRadius: 8px;
-    borderBottomRightRadius: 8px;
-    backgroundColor: ${props => props.primaryColor || '#E6E6E6'};
+    borderright: 6px solid ${props => props.primaryColor || '#E6E6E6'};
+    bordertoprightradius: 8px;
+    borderbottomrightradius: 8px;
+    backgroundcolor: ${props => props.primaryColor || '#E6E6E6'};
     color: ${props => props.secondaryColor || 'white'};
 `;
 
 const Feedback = styled.div`
     width: 100%;
-    textAlign: left;
+    textalign: left;
     color: ${props => props.color || '#E6E6E6'};
 `;
 

@@ -2,16 +2,16 @@ import styled from 'styled-components';
 
 const RoundedButton = styled.button`
     padding: 10px 0;
-    borderRadius: 20px;
-    backgroundColor: transparent;
+    borderradius: 20px;
+    backgroundcolor: transparent;
     color: ${props => props.color};
-    fontWeight: 500;
-    fontSize: 16px;
+    fontweight: 500;
+    fontsize: 16px;
     padding: 8px 60px;
     border: 3px solid ${props => props.color};
 
     &:hover {
-        backgroundColor: ${props => props.color};
+        backgroundcolor: ${props => props.color};
         color: white;
         ${props => props.hover};
     }
