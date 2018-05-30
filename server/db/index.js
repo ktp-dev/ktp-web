@@ -30,12 +30,7 @@ mongoose.Promise = global.Promise;
 
 // Initialize the DB connection
 mongoose
-    .connect(
-        'mongodb://' + config.mongo_hostname + '/' + config.backend_db,
-        {
-            useMongoClient: true
-        }
-    )
+    .connect('mongodb://' + config.mongo_hostname + '/' + config.backend_db)
     .then(res => {
         if (res) {
             console.log('Connected to MongoDB Successfully');
@@ -87,33 +82,6 @@ function modifySchema(schema) {
             }
             return this.save();
         };
-
-        /*
-        schema.statics.getUpdateableFields = function(groups) {
-            const updateables = [];
-
-            for (const key in schema.obj) {
-                if (schema.obj.hasOwnProperty(key) && schema.obj[key].form) {
-                    const field = schema.obj[key];
-
-                    if (field.form.user_editable) {
-                        updateables.push(key);
-                    } else if (groups) {
-                        groups.forEach(function(group) {
-                            if (
-                                field.form.auth_groups &&
-                                field.form.auth_groups.indexOf(group) !== -1
-                            ) {
-                                updateables.push(key);
-                            }
-                        });
-                    }
-                }
-            }
-
-            return updateables;
-        };
-        */
     }
 }
 

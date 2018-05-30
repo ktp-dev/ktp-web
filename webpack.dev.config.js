@@ -53,7 +53,7 @@ var devConfig = {
         // inject styles and javascript into index.html
         new HtmlWebpackPlugin({
             title: 'Webpack Build',
-            template: './app/index-dev.html'
+            template: './app/index.html'
         }),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': '"development"'

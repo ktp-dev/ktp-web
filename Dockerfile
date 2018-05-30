@@ -1,4 +1,4 @@
-FROM node:8
+FROM node:latest
 
 MAINTAINER The Brothers of Kappa Theta Pi
 
