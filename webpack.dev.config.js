@@ -1,8 +1,8 @@
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var autoprefixer = require('autoprefixer');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
-var devConfig = {
+const devConfig = {
     entry: [
         'babel-polyfill',
         './app/app.js',
@@ -10,7 +10,7 @@ var devConfig = {
         'webpack-hot-middleware/client'
     ],
     output: {
-        publicPath: (process.env.HOST || 'http://localhost:4000') + '/',
+        publicPath: `${process.env.HOST || 'http://localhost:4000'  }/`,
         path: '/',
         filename: 'js/app.js'
     },
@@ -30,9 +30,9 @@ var devConfig = {
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader',
-                    'postcss-loader?' + JSON.stringify(
+                    `postcss-loader?${  JSON.stringify(
                     [ autoprefixer({ browsers: ['last 3 versions'] }) ]
-                )]
+                )}`]
             },
             {
                 test: /\.js?$/,

@@ -1,15 +1,15 @@
-let webpack = require('webpack');
-let path = require('path');
-let HtmlWebpackPlugin = require('html-webpack-plugin');
-let CopyWebpackPlugin = require('copy-webpack-plugin');
-let CleanWebpackPlugin = require('clean-webpack-plugin');
-let ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
-let autoprefixer = require('autoprefixer');
+const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
-let cssExtractor = new ExtractTextWebpackPlugin('./[name].css');
-let lifecycleEvent = process.env.npm_lifecycle_event;
+const cssExtractor = new ExtractTextWebpackPlugin('./[name].css');
+const lifecycleEvent = process.env.npm_lifecycle_event;
 
-let devConfig = {
+const devConfig = {
     entry: ['babel-polyfill', './app/app.js'],
     output: {
         publicPath: '/',
@@ -33,9 +33,9 @@ let devConfig = {
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader',
-                    'postcss-loader?' + JSON.stringify(
+                    `postcss-loader?${  JSON.stringify(
                     [ autoprefixer({ browsers: ['last 3 versions'] }) ]
-                )]
+                )}`]
             },
             {
                 test: /\.js?$/,
@@ -75,7 +75,7 @@ let devConfig = {
     }
 };
 
-let buildConfig = {
+const buildConfig = {
     entry: ['babel-polyfill', './app/app.js'],
     output: {
         publicPath: '/',

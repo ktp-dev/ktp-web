@@ -1,3 +1,3 @@
 module.exports = {
-    EXECUTING: 'Executing request to deploy: '
+  EXECUTING: 'Executing request to deploy: ',
 };

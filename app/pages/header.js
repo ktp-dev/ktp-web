@@ -1,13 +1,14 @@
-import React from 'react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { slide as Menu } from 'react-burger-menu';
+import { h } from 'react-hyperscript-helpers';
+
 import { routes } from '../constants';
 import { devices } from '../styles';
-import theme from '../styles/theme.js';
-import { getUserMetadata } from '../util/user.js';
+import theme from '../styles/theme';
+import { getUserMetadata } from '../util/user';
 
 const HeaderLogoImage = require('../../static/icons/logo.png');
 const Favicon = require('../../static/icons/logo.png');
@@ -18,221 +19,232 @@ const Wrapper = styled.div`
     top: 0;
     left: 0;
     right: 0;
-    paddingTop: 15px
-    paddingBottom: 15px
-    zIndex: 100;
+    padding-top: 15px
+    padding-bottom: 15px
+    z-index: 100;
 
     display: flex;
     height: 80px;
-    alignItems: center;
-    justifyContent: flex-start;
+    align-items: center;
+    justify-content: flex-start;
     background: ${theme.primary};
 `;
 
 const FlexWrapper = styled.div`
-    display: flex;
-    alignitems: center;
-    justifycontent: center;
-    height: 90%;
-    width: calc(100% - 72px);
-    margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90%;
+  width: calc(100% - 72px);
+  margin: 0 auto;
 
-    ${devices.tablet`
-        justifyContent: space-between;
+  ${devices.tablet`
+        justify-content: space-between;
     `};
 `;
 
 const Logo = styled.img`
-    height: 50px;
-    display: block;
-    paddingbottom: 5px;
-
-    ${devices.small`
+  height: 50px;
+  display: block;
+  ${devices.small`
         height: 50px;
     `};
 `;
 
 const NavContainer = styled.div`
-    display: none;
-    alignitems: center;
-    justifycontent: flex-end;
-    ${devices.tablet`
-        ${props => (props.disableCompact ? 'display: flex' : '')};
+  display: none;
+  align-items: center;
+  justify-content: flex-end;
+  ${devices.tablet`
+        ${(props) => (props.disableCompact ? 'display: flex' : '')};
     `};
 `;
 
 const HeaderNavLink = styled(NavLink)`
-    margin: auto;
-    marginleft: 0;
+  margin: auto;
+  margin-left: 0;
 `;
 
 const StyledNavLink = styled(NavLink)`
-    fontsize: 22px;
-    padding: 2px 20px;
-    //margin: 10px 0 10px 15px;
-    color: ${props => props.color};
-    textdecoration: none;
-    transition: all 0.3s;
-    text-transform: uppercase;
+  font-size: 16px;
+  padding: 2px 20px;
+  margin: 10px 0 10px 15px;
+  border: 2px solid ${(props) => props.color};
+  color: ${(props) => props.color};
+  background-color: ${theme.primary};
+  border-radius: 25px;
+  text-decoration: none;
+  transition: all 0.3s;
+  text-transform: uppercase;
 
-    &:hover {
-        textdecoration: underline;
-    }
+  &:hover {
+    background-color: ${(props) => props.color};
+    color: white;
+  }
+
+  &:first-child {
+    margin: 0;
+    margin-left: 15px;
+  }
 `;
 
 const StyledALink = styled.a`
-    fontsize: 22px;
-    padding: 2px 20px;
-    //margin: 10px 0 10px 15px;
-    color: ${props => props.color};
-    textdecoration: none;
-    transition: all 0.3s;
-    text-transform: uppercase;
+  font-size: 16px;
+  padding: 2px 20px;
+  margin: 10px 0 10px 15px;
+  border: 2px solid ${(props) => props.color};
+  color: ${(props) => props.color};
+  background-color: ${theme.primary};
+  border-radius: 25px;
+  text-decoration: none;
+  transition: all 0.3s;
+  text-transform: uppercase;
 
-    &:hover {
-        textdecoration: underline;
-    }
+  &:hover {
+    background-color: ${(props) => props.color};
+    color: white;
+  }
+
+  &:first-child {
+    margin: 0;
+    margin-left: 15px;
+  }
 `;
 
 const Burger = styled.div`
-    .bm-burger-button {
-        position: fixed;
-        width: 36px;
-        height: 30px;
-        right: 36px;
-        top: 25px;
-    }
+  .bm-burger-button {
+    position: fixed;
+    width: 36px;
+    height: 30px;
+    right: 36px;
+    top: 25px;
+  }
 
-    .bm-burger-bars {
-        background: ${props => props.primaryColor};
-        height: 15% !important;
-        borderradius: 10px;
-    }
+  .bm-burger-bars {
+    background: ${(props) => props.primaryColor};
+    height: 15% !important;
+    border-radius: 10px;
+  }
 
-    .bm-cross-button {
-        height: 24px;
-        width: 24px;
-    }
+  .bm-cross-button {
+    height: 24px;
+    width: 24px;
+  }
 
-    .bm-cross {
-        background: ${props => props.primaryColor};
-    }
+  .bm-cross {
+    background: ${(props) => props.primaryColor};
+  }
 
-    .bm-menu {
-        backgroundcolor: ${theme.primary};
-        padding: 2.5em 1.5em 0;
-        font-size: 1.15em;
-    }
+  .bm-menu {
+    background-color: ${theme.primary};
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+  }
 
-    .bm-morph-shape {
-        fill: #373a47;
-    }
+  .bm-morph-shape {
+    fill: #373a47;
+  }
 
-    .bm-item-list {
-        color: white;
-        padding: 0.8em;
-    }
+  .bm-item-list {
+    color: white;
+    padding: 0.8em;
+  }
 
-    .bm-overlay {
-        background: rgba(0, 0, 0, 0.3);
-        top: 0;
-        left: 0;
-    }
+  .bm-overlay {
+    background: rgba(0, 0, 0, 0.3);
+    top: 0;
+    left: 0;
+  }
 
-    .bm-menu-wrap {
-        top: 0;
-    }
+  .bm-menu-wrap {
+    top: 0;
+  }
 
-    ${devices.tablet`
-        ${props => (props.disableCompact ? 'display: none' : '')};
+  ${devices.tablet`
+        ${(props) => (props.disableCompact ? 'display: none' : '')};
     `};
 `;
 
-class HeaderLinks extends React.Component {
-    render() {
-        const { color, userMetadata, isCompact } = this.props;
-        const { isLoggedIn, isAdmin } = userMetadata;
+const HeaderLinks = () => {
+  const { color, userMetadata, isCompact } = this.props;
+  const { isLoggedIn, isAdmin } = userMetadata;
 
-        // Either render a Menu component for mobile, or NavContainer for desktop as
-        // the parent component for the navigation links.
-        const WrappingComponent = isCompact ? Menu : NavContainer;
-        return (
-            <WrappingComponent right disableCompact={true} isOpen={false}>
-                {isLoggedIn && isAdmin ? (
-                    <StyledALink href={routes.ADMIN} color={color}>
-                        Admin
-                    </StyledALink>
-                ) : null}
-                {isLoggedIn ? (
-                    <StyledNavLink to={routes.LOGOUT} color={color}>
-                        Log Out
-                    </StyledNavLink>
-                ) : (
-                    <StyledNavLink to={routes.LOGIN} color={color}>
-                        Log In
-                    </StyledNavLink>
-                )}
-            </WrappingComponent>
-        );
-    }
-}
+  // Either render a Menu component for mobile, or NavContainer for desktop as
+  // the parent component for the navigation links.
+  const WrappingComponent = isCompact ? Menu : NavContainer;
+  return h(
+    WrappingComponent,
+    {
+      right: false,
+      disableCompact: !userMetadata.isLoggedIn,
+      isOpen: false,
+    },
+    [
+      isLoggedIn && isAdmin
+        ? h(StyledALink, { href: routes.ADMIN, color }, 'Admin')
+        : null,
+      isLoggedIn
+        ? h(StyledNavLink, { to: routes.PROFILE, color }, 'Edit Profile')
+        : null,
+      isLoggedIn
+        ? h(StyledNavLink, { to: routes.LOGOUT, color }, 'Log Out')
+        : h(StyledNavLink, { to: routes.LOGIN, color }, 'Log In'),
+    ],
+  );
+};
 
-class Header extends React.Component {
-    render() {
-        const userData = this.props.userState.data;
-        const userMetadata = getUserMetadata(userData);
-        const configurationData = this.props.configurationState.data;
+const Header = () => {
+  const userData = this.props.userState.data;
+  const userMetadata = getUserMetadata(userData);
+  const configurationData = this.props.configurationState.data;
 
-        return (
-            <div>
-                {window.location.pathname == routes.SUBSCRIBE ? null : (
-                    <div>
-                        <Helmet>
-                            <title>Kappa Theta Pi</title>
-
-                            <link
-                                rel="icon"
-                                type="image/x-icon"
-                                href={Favicon}
-                            />
-                        </Helmet>
-                        <Wrapper>
-                            <FlexWrapper>
-                                <HeaderNavLink to={routes.HOME}>
-                                    <Logo src={HeaderLogoImage} />
-                                </HeaderNavLink>
-                                <HeaderLinks
-                                    userMetadata={userMetadata}
-                                    configurationData={configurationData}
-                                    color={this.props.theme.secondary}
-                                    isCompact={false}
-                                />
-                                <Burger
-                                    primaryColor={this.props.theme.highlight}
-                                    disableCompact={true}
-                                >
-                                    <HeaderLinks
-                                        userMetadata={userMetadata}
-                                        configurationData={configurationData}
-                                        color={this.props.theme.highlight}
-                                        isCompact={true}
-                                    />
-                                </Burger>
-                            </FlexWrapper>
-                        </Wrapper>
-                    </div>
-                )}
-            </div>
-        );
-    }
-}
+  return h('div', [
+    h(Helmet, [
+      h('title', 'Kappa Theta Pi'),
+      h('link', {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: Favicon,
+      }),
+    ]),
+    h(
+      Wrapper,
+      h(FlexWrapper, [
+        h(
+          HeaderNavLink,
+          { to: routes.HOME },
+          h(Logo, { src: HeaderLogoImage }),
+        ),
+        h(HeaderLinks, {
+          userMetadata,
+          configurationData,
+          color: this.props.theme.highlight,
+          isCompact: false,
+        }),
+        h(
+          Burger,
+          {
+            primaryColor: this.props.theme.highlight,
+            disableCompact: !userMetadata.isLoggedIn,
+          },
+          h(HeaderLinks, {
+            userMetadata,
+            configurationData,
+            color: this.props.theme.highlight,
+            isCompact: true,
+          }),
+        ),
+      ]),
+    ),
+  ]);
+};
 
 function mapStateToProps(state) {
-    return {
-        userState: state.userState,
-        configurationState: state.configurationState,
-        theme: state.theme.data
-    };
+  return {
+    userState: state.userState,
+    configurationState: state.configurationState,
+    theme: state.theme.data,
+  };
 }
 
 export default connect(mapStateToProps)(Header);

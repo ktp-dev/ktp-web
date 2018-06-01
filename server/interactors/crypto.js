@@ -1,31 +1,31 @@
-var crypto = require('crypto'),
-    config = require('../../config/default.js'),
-    secret = config.secret,
-    algo = 'aes-256-ctr';
+const crypto = require('crypto');
+const config = require('../../config/default.js');
+const { secret } = config;
+const algo = 'aes-256-ctr';
 
 function encrypt(text) {
-    var cipher = crypto.createCipher(algo, secret);
-    var crypted = cipher.update(text, 'utf8', 'hex');
-    crypted += cipher.final('hex');
-    return crypted;
+  const cipher = crypto.createCipher(algo, secret);
+  let crypted = cipher.update(text, 'utf8', 'hex');
+  crypted += cipher.final('hex');
+  return crypted;
 }
 
 function decrypt(text) {
-    var decipher = crypto.createDecipher(algo, secret);
-    var dec = decipher.update(text, 'hex', 'utf8');
-    dec += decipher.final('utf8');
-    return dec;
+  const decipher = crypto.createDecipher(algo, secret);
+  let dec = decipher.update(text, 'hex', 'utf8');
+  dec += decipher.final('utf8');
+  return dec;
 }
 
-function createHmac(secret, body) {
-    return crypto
-        .createHmac('sha1', secret)
-        .update(body)
-        .digest('hex');
+function createHmac(hmacSecret, body) {
+  return crypto
+    .createHmac('sha1', hmacSecret)
+    .update(body)
+    .digest('hex');
 }
 
 module.exports = {
-    encrypt,
-    decrypt,
-    createHmac
+  encrypt,
+  decrypt,
+  createHmac,
 };
