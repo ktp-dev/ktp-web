@@ -5,7 +5,7 @@ var autoprefixer = require('autoprefixer');
 var devConfig = {
     entry: [
         'babel-polyfill',
-        './app/app.jsx',
+        './app/app.js',
         'webpack/hot/dev-server',
         'webpack-hot-middleware/client'
     ],
@@ -17,12 +17,12 @@ var devConfig = {
     mode: 'development',
     devtool: 'source-map',
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.js']
     },
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
+                test: /\.js?$/,
                 enforce: 'pre',
                 use: ['eslint-loader'],
                 exclude: /node_modules/
@@ -35,7 +35,7 @@ var devConfig = {
                 )]
             },
             {
-                test: /\.jsx?$/,
+                test: /\.js?$/,
                 exclude: /(node_modules|bower_components)/,
                 use: ['babel-loader']
             },

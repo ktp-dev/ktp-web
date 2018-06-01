@@ -10,7 +10,7 @@ let cssExtractor = new ExtractTextWebpackPlugin('./[name].css');
 let lifecycleEvent = process.env.npm_lifecycle_event;
 
 let devConfig = {
-    entry: ['babel-polyfill', './app/app.jsx'],
+    entry: ['babel-polyfill', './app/app.js'],
     output: {
         publicPath: '/',
         path: path.resolve('./build'),
@@ -20,12 +20,12 @@ let devConfig = {
     devtool: 'source-map',
     resolve: {
       modules: ['web_modules', 'node_modules', 'app', 'static'],
-      extensions: ['.js', '.jsx'],
+      extensions: ['.js', '.js'],
     },
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
+                test: /\.js?$/,
                 enforce: 'pre',
                 use: ['eslint-loader'],
                 exclude: /node_modules/
@@ -38,7 +38,7 @@ let devConfig = {
                 )]
             },
             {
-                test: /\.jsx?$/,
+                test: /\.js?$/,
                 exclude: /(node_modules|bower_components)/,
                 use: ['babel-loader']
             },
@@ -76,7 +76,7 @@ let devConfig = {
 };
 
 let buildConfig = {
-    entry: ['babel-polyfill', './app/app.jsx'],
+    entry: ['babel-polyfill', './app/app.js'],
     output: {
         publicPath: '/',
         path: path.resolve('./build'),
@@ -85,7 +85,7 @@ let buildConfig = {
     mode: 'production',
     devtool: 'source-map',
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.js']
     },
     optimization: {
         minimize: true
@@ -93,7 +93,7 @@ let buildConfig = {
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
+                test: /\.js?$/,
                 enforce: 'pre',
                 use: ['eslint-loader'],
                 exclude: /node_modules/
@@ -107,7 +107,7 @@ let buildConfig = {
                 })
             },
             {
-                test: /\.jsx?$/,
+                test: /\.js?$/,
                 exclude: /(node_modules|bower_components)/,
                 use: ['babel-loader']
             },
