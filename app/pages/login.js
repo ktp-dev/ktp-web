@@ -110,9 +110,8 @@ class Login extends React.Component {
 
   render() {
     return h(
-      Page,
-      h(
-        FormContainer,
+      Page,[
+      h(FormContainer, [
         h(TabGroup, {
           tabs: [
             { title: 'Sign Up', onClick: this.tabSelect },
@@ -128,7 +127,7 @@ class Login extends React.Component {
           : null,
         h(
           'form',
-          { onSubmit: this.onSubmit.bind(this) },
+          { onSubmit: this.onSubmit.bind(this) },[
           h(Flexer, [
             h(InputContainer, [
               this.state.isRegistering
@@ -140,7 +139,7 @@ class Login extends React.Component {
                     value: this.state.name,
                     onChange: this.handleAttributeChange.bind(this),
                   })
-                : undefined,
+                : null,
               h('input', {
                 id: 'email',
                 type: 'email',
@@ -163,16 +162,15 @@ class Login extends React.Component {
               h(
                 RoundedButton,
                 {
-                  type: 'submit',
                   color: this.props.theme.primary,
                 },
                 'Confirm',
               ),
             ),
           ]),
-        ),
-      ),
-    );
+        ]),
+      ]),
+    ]);
   }
 }
 

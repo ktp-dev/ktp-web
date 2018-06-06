@@ -11,13 +11,13 @@ class Navigator extends React.Component {
   render() {
     return h(
       IntlProvider,
-      { locale: 'en' },
+      { locale: 'en' }, [
       h(
         ThemeProvider,
-        { theme: this.props.theme },
-        h('div', [h(Header), h(React.Children.toArray(this.props.children))]),
-      ),
-    );
+        { theme: this.props.theme }, [
+        h('div', [h(Header), React.Children.toArray(this.props.children)]),
+      ]),
+    ]);
   }
 }
 

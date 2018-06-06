@@ -9,6 +9,6 @@ const StyledPageContainer = styled(PageContainer)`
 `;
 
 const HomePage = () =>
-  h(StyledPageContainer, { ref: 'pagecontainer' }, h(Landing));
+  h(StyledPageContainer, [h(Landing)]);
 
 export default HomePage;

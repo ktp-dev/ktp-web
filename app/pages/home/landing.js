@@ -42,7 +42,7 @@ const Text = styled.h2`
     `};
 `;
 
-const Landing = () => h(Wrapper, h(Container, h(Text, 'Kappa Theta Pi')));
+const Landing = () => h(Wrapper, [h(Container, [h(Text, ['Kappa Theta Pi'])])]);
 
 function mapStateToProps(state) {
   return {

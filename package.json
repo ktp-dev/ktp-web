@@ -90,7 +90,7 @@
     "react-redux": "^5.0.3",
     "react-router": "^4.0.0",
     "react-router-dom": "^4.1.1",
-    "react-router-redux": "^4.0.8",
+    "react-router-redux": "^5.0.0-alpha.9",
     "react-select": "^1.0.0-rc.5",
     "react-select-fast-filter-options": "^0.2.3",
     "react-table": "^6.8.6",

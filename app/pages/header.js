@@ -7,8 +7,10 @@ import { h } from 'react-hyperscript-helpers';
 
 import { routes } from '../constants';
 import { devices } from '../styles';
-import theme from '../styles/theme';
+import globalTheme from '../styles/theme';
 import { getUserMetadata } from '../util/user';
+
+console.log(globalTheme);
 
 const HeaderLogoImage = require('../../static/icons/logo.png');
 const Favicon = require('../../static/icons/logo.png');
@@ -27,7 +29,7 @@ const Wrapper = styled.div`
     height: 80px;
     align-items: center;
     justify-content: flex-start;
-    background: ${theme.primary};
+
 `;
 
 const FlexWrapper = styled.div`
@@ -71,7 +73,7 @@ const StyledNavLink = styled(NavLink)`
   margin: 10px 0 10px 15px;
   border: 2px solid ${(props) => props.color};
   color: ${(props) => props.color};
-  background-color: ${theme.primary};
+
   border-radius: 25px;
   text-decoration: none;
   transition: all 0.3s;
@@ -94,7 +96,7 @@ const StyledALink = styled.a`
   margin: 10px 0 10px 15px;
   border: 2px solid ${(props) => props.color};
   color: ${(props) => props.color};
-  background-color: ${theme.primary};
+
   border-radius: 25px;
   text-decoration: none;
   transition: all 0.3s;
@@ -136,7 +138,7 @@ const Burger = styled.div`
   }
 
   .bm-menu {
-    background-color: ${theme.primary};
+
     padding: 2.5em 1.5em 0;
     font-size: 1.15em;
   }
@@ -165,8 +167,7 @@ const Burger = styled.div`
     `};
 `;
 
-const HeaderLinks = () => {
-  const { color, userMetadata, isCompact } = this.props;
+const HeaderLinks = ({ color, userMetadata, isCompact }) => {
   const { isLoggedIn, isAdmin } = userMetadata;
 
   // Either render a Menu component for mobile, or NavContainer for desktop as
@@ -193,10 +194,8 @@ const HeaderLinks = () => {
   );
 };
 
-const Header = () => {
-  const userData = this.props.userState.data;
+const Header = ({ userData, theme }) => {
   const userMetadata = getUserMetadata(userData);
-  const configurationData = this.props.configurationState.data;
 
   return h('div', [
     h(Helmet, [
@@ -208,42 +207,39 @@ const Header = () => {
       }),
     ]),
     h(
-      Wrapper,
+      Wrapper, [
       h(FlexWrapper, [
         h(
           HeaderNavLink,
           { to: routes.HOME },
-          h(Logo, { src: HeaderLogoImage }),
+          [h(Logo, { src: HeaderLogoImage })],
         ),
         h(HeaderLinks, {
           userMetadata,
-          configurationData,
-          color: this.props.theme.highlight,
+          color: theme.highlight,
           isCompact: false,
         }),
         h(
           Burger,
           {
-            primaryColor: this.props.theme.highlight,
+            primaryColor: theme.highlight,
             disableCompact: !userMetadata.isLoggedIn,
           },
-          h(HeaderLinks, {
+          [h(HeaderLinks, {
             userMetadata,
-            configurationData,
-            color: this.props.theme.highlight,
+            color: theme.highlight,
             isCompact: true,
-          }),
+          })],
         ),
       ]),
-    ),
+    ]),
   ]);
 };
 
-function mapStateToProps(state) {
+function mapStateToProps({ userState, theme }) {
   return {
-    userState: state.userState,
-    configurationState: state.configurationState,
-    theme: state.theme.data,
+    userData: userState.data,
+    theme: theme.data,
   };
 }
 

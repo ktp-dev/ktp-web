@@ -30,7 +30,7 @@ const store = createStore(
 
 window.s = store;
 
-class AppProvider extends React.Component {
+class App extends React.Component {
   componentWillMount() {
     this.props.dispatch(ConfigurationThunks.loadConfiguration());
   }
@@ -52,39 +52,34 @@ class AppProvider extends React.Component {
     }
 
     return h(
-      Provider,
-      { store },
-      h(
-        ConnectedRouter,
-        { history },
-        h(
-          Navigator,
-          h(Switch, [
-            h(Route, {
-              exact: true,
-              path: routes.HOME,
-              component: HomePage,
-            }),
-            h(Route, {
-              exact: true,
-              path: routes.LOGIN,
-              render: () => {
-                if (this.getMetadata().isLoggedIn) {
-                  return h(Redirect, { to: routes.HOME });
-                }
-                return h(Login);
-              },
-            }),
-            h(Route, {
-              exact: true,
-              path: routes.LOGOUT,
-              render: () => h(Logout),
-            }),
-            h(Route, { component: HomePage }),
-          ]),
-        ),
-      ),
-    );
+      ConnectedRouter,
+      { history }, [
+      h(Navigator, [
+        h(Switch, [
+          h(Route, {
+            exact: true,
+            path: routes.HOME,
+            component: HomePage,
+          }),
+          h(Route, {
+            exact: true,
+            path: routes.LOGIN,
+            render: () => {
+              if (App.getMetadata().isLoggedIn) {
+                return h(Redirect, { to: routes.HOME });
+              }
+              return h(Login);
+            },
+          }),
+          h(Route, {
+            exact: true,
+            path: routes.LOGOUT,
+            render: () => h(Logout),
+          }),
+          h(Route, { component: HomePage }),
+        ]),
+      ]),
+    ]);
   }
 }
 
@@ -94,9 +89,9 @@ function mapStateToProps(state) {
   };
 }
 
+const AppConn = connect(mapStateToProps)(App)
+
 render(
-  React.createElement(connect(mapStateToProps)(AppProvider), {
-    store,
-  }),
+  h(Provider, { store }, [h(AppConn)]),
   document.getElementById('app'),
 );
