@@ -1,28 +1,28 @@
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var autoprefixer = require('autoprefixer');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
-var devConfig = {
+const devConfig = {
     entry: [
         'babel-polyfill',
-        './app/app.jsx',
+        './app/app.js',
         'webpack/hot/dev-server',
         'webpack-hot-middleware/client'
     ],
     output: {
-        publicPath: (process.env.HOST || 'http://localhost:4000') + '/',
+        publicPath: `${process.env.HOST || 'http://localhost:4000'  }/`,
         path: '/',
         filename: 'js/app.js'
     },
     mode: 'development',
     devtool: 'source-map',
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.js']
     },
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
+                test: /\.js?$/,
                 enforce: 'pre',
                 use: ['eslint-loader'],
                 exclude: /node_modules/
@@ -30,12 +30,12 @@ var devConfig = {
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader',
-                    'postcss-loader?' + JSON.stringify(
+                    `postcss-loader?${  JSON.stringify(
                     [ autoprefixer({ browsers: ['last 3 versions'] }) ]
-                )]
+                )}`]
             },
             {
-                test: /\.jsx?$/,
+                test: /\.js?$/,
                 exclude: /(node_modules|bower_components)/,
                 use: ['babel-loader']
             },

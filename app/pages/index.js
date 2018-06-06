@@ -1,7 +1,6 @@
-import Navigator from './navigator.jsx';
+import Navigator from './navigator';
 import HomePage from './home';
-import Login from './login.jsx';
-import Logout from './logout.jsx';
-import AdminPage from './admin';
+import Login from './login';
+import Logout from './logout';
 
-export { Navigator, HomePage, Login, Logout, AdminPage };
+export { Navigator, HomePage, Login, Logout };

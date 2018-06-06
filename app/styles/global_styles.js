@@ -1,7 +1,7 @@
 import { injectGlobal } from 'styled-components';
-import Theme from './theme.js';
+import Theme from './theme';
 
-// uses some bootstrap defaults
+/* eslint no-unused-expressions: 0 */
 injectGlobal`
 body {
     margin: 0px;
