@@ -109,8 +109,7 @@ class Login extends React.Component {
   }
 
   render() {
-    return h(
-      Page,[
+    return h(Page, [
       h(FormContainer, [
         h(TabGroup, {
           tabs: [
@@ -125,9 +124,7 @@ class Login extends React.Component {
               h(Alert, { message: this.props.userState.message }),
             )
           : null,
-        h(
-          'form',
-          { onSubmit: this.onSubmit.bind(this) },[
+        h('form', { onSubmit: this.onSubmit.bind(this) }, [
           h(Flexer, [
             h(InputContainer, [
               this.state.isRegistering

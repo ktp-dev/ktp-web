@@ -138,7 +138,6 @@ const Burger = styled.div`
   }
 
   .bm-menu {
-
     padding: 2.5em 1.5em 0;
     font-size: 1.15em;
   }
@@ -206,14 +205,11 @@ const Header = ({ userData, theme }) => {
         href: Favicon,
       }),
     ]),
-    h(
-      Wrapper, [
+    h(Wrapper, [
       h(FlexWrapper, [
-        h(
-          HeaderNavLink,
-          { to: routes.HOME },
-          [h(Logo, { src: HeaderLogoImage })],
-        ),
+        h(HeaderNavLink, { to: routes.HOME }, [
+          h(Logo, { src: HeaderLogoImage }),
+        ]),
         h(HeaderLinks, {
           userMetadata,
           color: theme.highlight,
@@ -225,11 +221,13 @@ const Header = ({ userData, theme }) => {
             primaryColor: theme.highlight,
             disableCompact: !userMetadata.isLoggedIn,
           },
-          [h(HeaderLinks, {
-            userMetadata,
-            color: theme.highlight,
-            isCompact: true,
-          })],
+          [
+            h(HeaderLinks, {
+              userMetadata,
+              color: theme.highlight,
+              isCompact: true,
+            }),
+          ],
         ),
       ]),
     ]),

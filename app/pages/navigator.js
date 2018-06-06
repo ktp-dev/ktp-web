@@ -9,12 +9,8 @@ import Header from './header';
 
 class Navigator extends React.Component {
   render() {
-    return h(
-      IntlProvider,
-      { locale: 'en' }, [
-      h(
-        ThemeProvider,
-        { theme: this.props.theme }, [
+    return h(IntlProvider, { locale: 'en' }, [
+      h(ThemeProvider, { theme: this.props.theme }, [
         h('div', [h(Header), React.Children.toArray(this.props.children)]),
       ]),
     ]);

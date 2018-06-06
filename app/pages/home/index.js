@@ -8,7 +8,6 @@ const StyledPageContainer = styled(PageContainer)`
   overflow: hidden;
 `;
 
-const HomePage = () =>
-  h(StyledPageContainer, [h(Landing)]);
+const HomePage = () => h(StyledPageContainer, [h(Landing)]);
 
 export default HomePage;

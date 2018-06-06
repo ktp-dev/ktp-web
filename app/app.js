@@ -51,9 +51,7 @@ class App extends React.Component {
       return h('div');
     }
 
-    return h(
-      ConnectedRouter,
-      { history }, [
+    return h(ConnectedRouter, { history }, [
       h(Navigator, [
         h(Switch, [
           h(Route, {
@@ -89,9 +87,6 @@ function mapStateToProps(state) {
   };
 }
 
-const AppConn = connect(mapStateToProps)(App)
+const AppConn = connect(mapStateToProps)(App);
 
-render(
-  h(Provider, { store }, [h(AppConn)]),
-  document.getElementById('app'),
-);
+render(h(Provider, { store }, [h(AppConn)]), document.getElementById('app'));
