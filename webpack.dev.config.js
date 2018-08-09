@@ -5,7 +5,7 @@ const autoprefixer = require('autoprefixer');
 const devConfig = {
     entry: [
         'babel-polyfill',
-        './app/app.js',
+        './src/app/app.js',
         'webpack/hot/dev-server',
         'webpack-hot-middleware/client'
     ],
@@ -17,7 +17,7 @@ const devConfig = {
     mode: 'development',
     devtool: 'source-map',
     resolve: {
-        extensions: ['.js', '.js']
+        extensions: ['.js']
     },
     module: {
         rules: [
@@ -53,14 +53,17 @@ const devConfig = {
         // inject styles and javascript into index.html
         new HtmlWebpackPlugin({
             title: 'Webpack Build',
-            template: './app/index.html'
+            template: './src/app/index.html'
         }),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': '"development"'
         }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin()
-    ]
+    ],
+		performance: {
+		  hints: process.env.NODE_ENV === 'production' ? 'warning' : false
+		},
 };
 
 module.exports = devConfig;

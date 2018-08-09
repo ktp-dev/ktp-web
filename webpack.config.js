@@ -10,7 +10,7 @@ const cssExtractor = new ExtractTextWebpackPlugin('./[name].css');
 const lifecycleEvent = process.env.npm_lifecycle_event;
 
 const devConfig = {
-    entry: ['babel-polyfill', './app/app.js'],
+    entry: ['babel-polyfill', './src/app/app.js'],
     output: {
         publicPath: '/',
         path: path.resolve('./build'),
@@ -20,7 +20,7 @@ const devConfig = {
     devtool: 'source-map',
     resolve: {
       modules: ['web_modules', 'node_modules', 'app', 'static'],
-      extensions: ['.js', '.js'],
+      extensions: ['.js'],
     },
     module: {
         rules: [
@@ -56,7 +56,7 @@ const devConfig = {
         // inject styles and javascript into index.html
         new HtmlWebpackPlugin({
             title: 'Webpack Build',
-            template: './app/index.html'
+            template: './src/app/index.html'
         }),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': '"development"'
@@ -72,11 +72,14 @@ const devConfig = {
                 changeOrigin: true
             }
         }
-    }
+    },
+		performance: {
+		  hints: process.env.NODE_ENV === 'production' ? 'warning' : false
+		},
 };
 
 const buildConfig = {
-    entry: ['babel-polyfill', './app/app.js'],
+    entry: ['babel-polyfill', './src/app/app.js'],
     output: {
         publicPath: '/',
         path: path.resolve('./build'),
@@ -85,7 +88,7 @@ const buildConfig = {
     mode: 'production',
     devtool: 'source-map',
     resolve: {
-        extensions: ['.js', '.js']
+        extensions: ['.js']
     },
     optimization: {
         minimize: true
@@ -111,17 +114,13 @@ const buildConfig = {
                 exclude: /(node_modules|bower_components)/,
                 use: ['babel-loader']
             },
-            // {
-            //     test: /\.(eot|ttf|woff|woff2|otf)(\?\S*)?$/,
-            //     use: ['file-loader?name=fonts/[name].[ext]']
-            // },
             { test: /\.(png|jpg|jpeg|gif|woff|svg|otf)$/, use: 'file-loader' }
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Webpack Build',
-            template: './app/index.html'
+            template: './src/app/index.html'
         }),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': '"production"'
@@ -146,7 +145,10 @@ const buildConfig = {
                 changeOrigin: true
             }
         }
-    }
+    },
+		performance: {
+		  hints: process.env.NODE_ENV === 'production' ? 'warning' : false
+		},
 };
 
 switch (lifecycleEvent) {

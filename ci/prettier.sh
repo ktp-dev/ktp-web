@@ -1,7 +1,7 @@
 #!/bin/bash
 
 while true; do
-    output=$(prettier --single-quote --trailing-comma all --arrow-parens always --tab-width 2 "{app,config,server}/**/*.js*" "app.js"  -l)
+    output=$(prettier --single-quote --trailing-comma all --arrow-parens always --tab-width 2 "{src,config,server}/**/*.js*" "app.js"  -l)
     echo "$output"
 
     if [ -n "$output" ]
@@ -9,7 +9,7 @@ while true; do
         read -t 10 -p "Do you wish to run prettier on these files? [y/n]" yn
 
         case $yn in
-            [Yy]* ) prettier --single-quote --trailing-comma all --arrow-parens always --tab-width 2 "{app,config,server}/**/*.js*" "app.js" --write; exit $?;;
+            [Yy]* ) prettier --single-quote --trailing-comma all --arrow-parens always --tab-width 2 "{src,config,server}/**/*.js*" "app.js" --write; exit $?;;
             [Nn]* ) exit 1;;
             * ) echo "Please answer yes or no.";;
         esac
