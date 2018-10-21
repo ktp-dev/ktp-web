@@ -17,12 +17,16 @@ export const Routes = () =>
     h(Route, {
       exact: true,
       path: routes.LOGIN,
-      render: Login,
+      render: () =>
+        // if (App.getMetadata().isLoggedIn) {
+        //   return h(Redirect, { to: routes.HOME });
+        // }
+        h(Login),
     }),
     h(Route, {
       exact: true,
       path: routes.LOGOUT,
-      render: Logout,
+      render: () => h(Logout),
     }),
     h(Route, { component: HomePage }),
   ]);

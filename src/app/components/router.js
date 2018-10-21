@@ -3,6 +3,8 @@ import { ConnectedRouter } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 import { connect } from 'react-redux';
 
+import { GlobalStyle } from '../../styles';
+
 import { Routes } from './routes';
 import { NavigatorConn } from './navigator';
 import { bootAction } from '../action-creators';
@@ -11,7 +13,13 @@ const history = createHistory();
 
 const Router = ({ boot = () => {} }) => {
   boot();
-  return h(ConnectedRouter, { history }, [h(NavigatorConn, [h(Routes)])]);
+  return h(
+    ConnectedRouter,
+    {
+      history,
+    },
+    [h(NavigatorConn, [h(Routes), h(GlobalStyle)])],
+  );
 };
 
 const mapDispatchToProps = (dispatch) => ({

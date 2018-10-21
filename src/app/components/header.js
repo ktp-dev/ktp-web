@@ -11,22 +11,25 @@ import { devices } from '../../styles';
 import { getTheme, getUser } from '../../selectors';
 
 const HeaderLogoImage = require('../../../static/icons/logo.png');
-const Favicon = require('../../../static/icons/logo.png');
+const Favicon = require('../../../static/icons/favicon.png');
 
 /* Header Section */
 const Wrapper = styled.div`
-  background-color: ${({ theme }) => theme.secondary};
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding-top: 15px
-    padding-bottom: 15px
-    z-index: 100;
-    display: flex;
-    height: 80px;
-    align-items: center;
-    justify-content: flex-start;
+  margin: 0 px 16%;
+  ${devices.small`
+        margin: 0px 8%;
+    `};
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-top: 15px
+  padding-bottom: 15px
+  z-index: 100;
+  display: flex;
+  height: 80px;
+  align-items: center;
+  justify-content: flex-start;
 `;
 
 const FlexWrapper = styled.div`
@@ -49,18 +52,10 @@ const Logo = styled.img`
     `};
 `;
 
-const HeaderText = styled.h2`
-  color: white;
-  margin: 5px 5px 5px 15px;
-`;
-
 const NavContainer = styled.div`
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: flex-end;
-  ${devices.tablet`
-        ${({ disableCompact }) => (disableCompact ? 'display: flex' : '')};
-    `};
 `;
 
 const HeaderNavLink = styled(NavLink)`
@@ -72,10 +67,10 @@ const HeaderNavLink = styled(NavLink)`
 `;
 
 const StyledNavLink = styled(NavLink)`
+  color: ${({ theme }) => theme.primary};
   font-size: 16px;
   padding: 2px 20px;
   margin: 10px 0 10px 15px;
-  color: #ffffff;
   border-radius: 5px;
   text-decoration: none;
   transition: all 0.3s;
@@ -90,29 +85,7 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
-const HeaderLinks = ({ color, user }) => {
-  const { isLoggedIn } = user;
-  return h(
-    NavContainer,
-    {
-      right: false,
-      disableCompact: !user.isLoggedIn,
-      isOpen: false,
-    },
-    [
-      h(StyledNavLink, { to: routes.HOME, color }, 'About'),
-      isLoggedIn
-        ? h(StyledNavLink, { to: routes.HOME, color }, 'Log Out')
-        : h(
-            StyledNavLink,
-            { to: routes.HOME, color, style: { border: '1px solid #ffffff' } },
-            'Log In',
-          ),
-    ],
-  );
-};
-
-const Header = ({ user, theme }) =>
+const Header = () =>
   h('div', [
     h(Helmet, [
       h('title', 'Kappa Theta Pi'),
@@ -126,13 +99,21 @@ const Header = ({ user, theme }) =>
       h(FlexWrapper, [
         h(HeaderNavLink, { to: routes.HOME }, [
           h(Logo, { src: HeaderLogoImage }),
-          h(HeaderText, 'Kappa Theta Pi'),
         ]),
-        h(HeaderLinks, {
-          user,
-          color: theme.highlight,
-          isCompact: false,
-        }),
+        h(
+          NavContainer,
+          {
+            right: false,
+            isOpen: false,
+          },
+          [
+            h(StyledNavLink, { to: routes.HOME }, 'Home'),
+            h(StyledNavLink, { to: routes.ABOUT }, 'About Us'),
+            h(StyledNavLink, { to: routes.MEMBERS }, 'Members'),
+            h(StyledNavLink, { to: routes.RUSH }, 'Rush'),
+            h(StyledNavLink, { to: routes.CONTACT }, 'Contact Us'),
+          ],
+        ),
       ]),
     ]),
   ]);

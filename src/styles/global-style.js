@@ -1,8 +1,7 @@
-import { injectGlobal } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import Theme from './theme';
 
-/* eslint no-unused-expressions: 0 */
-injectGlobal`
+export const GlobalStyle = createGlobalStyle`
 body {
     margin: 0px;
     font-family: ${Theme.primaryFont}, sans-serif;

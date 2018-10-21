@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
 
 import { getTheme } from '../../selectors';
+
 import { HeaderConn } from './header';
 import { Footer } from './footer';
 

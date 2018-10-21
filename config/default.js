@@ -35,15 +35,10 @@ module.exports = {
   slack_token: process.env.SLACK_TOKEN || '',
   slack_notifications_channel:
     process.env.SLACK_NOTIFICATIONS_CHANNEL || '#notifications',
-  only_one_chat_client: parseBool(process.env.ONLY_ONE_CHAT_CLIENT, true),
-  store_chat_messages: parseBool(process.env.STORE_CHAT_MESSAGES, false), // This requires ElasticSearch to be running!
-  AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID || '',
-  AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY || '',
-  AWS_BUCKET_NAME: process.env.AWS_BUCKET_NAME || 'ktp',
   color_dark: process.env.COLOR_DARK || '#2F7BF3',
   color_light: process.env.COLOR_LIGHT || '#E84359',
   admin_name: process.env.ADMIN_NAME || 'Administrator',
-  admin_email: process.env.ADMIN_EMAIL || 'eboard@kappathetapi.com',
+  admin_email: process.env.ADMIN_EMAIL || 'admin@kappathetapi.com',
   admin_password: process.env.ADMIN_PASSWORD || 'ninja',
 };
 

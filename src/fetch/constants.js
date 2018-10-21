@@ -1,1 +1,1 @@
-export const API_ENDPOINT = '/v1';
+export const API_ENDPOINT = 'https://api.run-micro.com';

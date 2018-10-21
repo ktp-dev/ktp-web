@@ -1,56 +1,24 @@
 import styled from 'styled-components';
 import { h } from 'react-hyperscript-helpers';
 
-import { Container } from '../../ui';
-import { devices } from '../../styles';
+import { SmallBody } from '../../ui';
 
 const InstagramImg = require('../../../static/icons/instagram.png');
 const FacebookImg = require('../../../static/icons/facebook.png');
 
-const FooterWrapper = styled.div`
-  background-color: white;
+const SocialIconsContainer = styled.div`
+  display: flex;
 `;
 
-const HomeFooter = styled.footer`
+const Container = styled.div`
   position: relative;
   display: flex;
   padding: 1rem;
   align-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-`;
-
-const Text = styled.h2`
-  color: ${({ theme }) => theme.secondary};
-  font-size: 12px;
-  margin-bottom: 0;
-  text-align: left;
-  flex: 1;
-  text-align: center;
-  min-width: 100%;
-  order: 1;
-
-  ${devices.tablet`
-        text-align: left;
-        text-indent: 50px;
-        min-width: 0;
-        order: 0;
-    `};
-`;
-
-const Flexer = styled.div`
-  flex: 1;
-  position: relative;
-  display: flex;
   justify-content: center;
-  min-width: 100%;
-
-  ${devices.tablet`
-        text-align: left;
-        min-width: 0;
-
-        ${({ right }) => (right ? 'justify-content: flex-end;' : '')}
-    `};
+  flex-wrap: wrap;
+  flex-direction: column;
 `;
 
 const Img100 = styled.img`
@@ -59,37 +27,31 @@ const Img100 = styled.img`
 `;
 
 const ImgButtonWrapper = styled.div`
-  height: 20px;
-  width: 20px;
+  height: 30px;
+  width: 30px;
   margin: 5px;
   text-align: center;
-  display: block;
+  display: flex;
 `;
 
 const ImgButton = ({ href }) =>
   h(ImgButtonWrapper, [h('a', { href }, [h(Img100)])]);
 
 export const Footer = () =>
-  h('div', [
-    h(FooterWrapper, { id: 'footer' }, [
-      h(Container, [
-        h(HomeFooter, [
-          h(Text, ['© Kappa Theta Pi 2018']),
-          h(Flexer, [
-            h(ImgButton, {
-              src: { FacebookImg },
-              alt: 'Facebook',
-              align: 'middle',
-              href: 'https://www.facebook.com/ktpumich',
-            }),
-            h(ImgButton, {
-              src: { InstagramImg },
-              alt: 'Instagram',
-              align: 'middle',
-              href: 'https://www.instagram.com/ktpumich',
-            }),
-          ]),
-        ]),
-      ]),
+  h(Container, [
+    h(SocialIconsContainer, [
+      h(ImgButton, {
+        src: FacebookImg,
+        alt: 'Facebook',
+        align: 'middle',
+        href: 'https://www.facebook.com/KTPalpha/',
+      }),
+      h(ImgButton, {
+        src: InstagramImg,
+        alt: 'Instagram',
+        align: 'middle',
+        href: 'https://www.instagram.com/ktpumich',
+      }),
     ]),
+    h(SmallBody, ['© 2018 Kappa Theta Pi Alpha Chapter']),
   ]);

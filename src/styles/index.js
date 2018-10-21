@@ -1,6 +1,6 @@
 import Theme from './theme';
 import devices from './devices';
-import './global_styles';
+import { GlobalStyle } from './global-style';
 import * as reducers from './reducer';
 
-export { Theme, devices, reducers };
+export { Theme, GlobalStyle, devices, reducers };
