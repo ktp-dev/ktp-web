@@ -2,7 +2,7 @@ import { h } from 'react-hyperscript-helpers';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
-import { getTheme } from '@ktp/theme';
+import { getTheme, devices } from '@ktp/theme';
 import { Card, PageHeading } from '@ktp/ui';
 import { getHomePageCards } from '../selectors';
 
@@ -12,10 +12,12 @@ const Wrapper = styled.div`
   margin: 10%;
 `;
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-flow: column wrap;
+const Container = styled.ul`
+  padding: 0px;
+  columns: 1;
+  ${devices.tablet`
+    columns: 2;
+    `};
 `;
 
 export const Landing = ({ cards, theme }) =>

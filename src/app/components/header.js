@@ -16,6 +16,7 @@ const Favicon = require('../../../static/icons/favicon.png');
 /* Header Section */
 const Wrapper = styled.div`
   margin: 0 px 16%;
+  background-color: white;
   ${devices.small`
         margin: 0px 8%;
     `};
@@ -76,8 +77,7 @@ const StyledNavLink = styled(NavLink)`
   transition: all 0.3s;
   text-transform: uppercase;
   &:hover {
-    background-color: #ffffff33;
-    color: white;
+    font-weight: bold;
   }
   &:first-child {
     margin: 0;
