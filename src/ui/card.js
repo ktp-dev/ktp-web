@@ -1,7 +1,7 @@
 import { h } from 'react-hyperscript-helpers';
 import styled from 'styled-components';
 
-import { devices } from '../styles';
+import { devices } from '@ktp/theme';
 import { Body, BodyHighlight } from './typography';
 
 const Container = styled.div`

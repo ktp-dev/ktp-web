@@ -1,9 +1,7 @@
 import 'isomorphic-fetch';
 
-import { API_ENDPOINT } from './constants';
-
 export default ({ url }, reqOpts, action) =>
-  fetch(API_ENDPOINT + url, reqOpts).then((res) =>
+  fetch(url, reqOpts).then((res) =>
     res
       .json()
       .then((data) => ({

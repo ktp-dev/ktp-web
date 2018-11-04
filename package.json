@@ -1,30 +1,42 @@
 {
-  "name": "ktp-web",
-  "version": "0.0.1",
+  "name": "@ktp/monorepo",
+  "version": "1.0.0",
   "description": "The Official KTP Alpha Chapter Website",
   "main": "app.js",
   "repository": "https://github.com/ktp-dev/ktp-web",
   "author": "The Brothers of KTP",
   "license": "GPL-3.0",
+  "private": true,
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "workspaces": [
+    "./src/*"
+  ],
   "scripts": {
     "start": "node app.js",
     "startweb": "webpack-dev-server --progress --colors --inline --watch --hot --devtool source-map --history-api-fallback --host 0.0.0.0 --port 4000",
     "startprod": "npm run build && NODE_ENV=production npm run start",
     "build": "webpack --progress --colors",
-    "test": "yarn run lint && yarn run prettier && yarn run build",
+    "test": "yarn run lint && yarn run format && yarn run build",
     "lint": "eslint server/ src/ config/ *.js",
-    "prettier": "ci/prettier.sh"
+    "pkg-create": "node ./scripts/pkg-create.js --package='${PKG}'",
+    "pkg-update": "node ./scripts/cli-pkg-depends.js --fix",
+    "format": "scripts/prettier.sh"
   },
   "dependencies": {
     "archiver": "^2.0.0",
     "autoprefixer": "^8.5.2",
     "aws-sdk": "^2.249.1",
     "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.3",
     "babel-loader": "^7.1.4",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.0",
     "babel-preset-react": "^6.23.0",
+    "babylon": "^6.18.0",
+    "babylon-walk": "^1.0.2",
     "bcrypt": "^3.0.0",
     "body-parser": "^1.18.3",
     "cachegoose": "^7.0.0",
@@ -37,8 +49,11 @@
     "es6-promise": "^4.1.0",
     "escape-string-regexp": "^1.0.5",
     "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
     "eslint-loader": "^2.0.0",
     "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.8.2",
     "express": "^4.16.3",
     "express-session": "^1.15.2",
@@ -103,16 +118,9 @@
     "url-loader": "^1.0.1",
     "validator": "^10.2.0",
     "webpack": "4.9.1",
+    "webpack-cli": "^2.1.4",
     "webpack-dev-middleware": "^3.1.3",
     "webpack-dev-server": "^3.1.5",
     "webpack-hot-middleware": "^2.22.2"
-  },
-  "devDependencies": {
-    "babel-eslint": "^8.2.3",
-    "babel-preset-env": "^1.7.0",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "webpack-cli": "^2.1.4"
   }
 }

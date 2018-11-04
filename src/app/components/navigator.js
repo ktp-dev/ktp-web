@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import { withRouter } from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
 
-import { getTheme } from '../../selectors';
+import { getTheme } from '@ktp/theme';
 
 import { HeaderConn } from './header';
 import { Footer } from './footer';

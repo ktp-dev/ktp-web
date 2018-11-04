@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { h } from 'react-hyperscript-helpers';
 
-import { SmallBody } from '../../ui';
+import { SmallBody } from '@ktp/ui';
 
 const InstagramImg = require('../../../static/icons/instagram.png');
 const FacebookImg = require('../../../static/icons/facebook.png');

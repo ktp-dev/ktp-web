@@ -31,12 +31,11 @@ const combine = (modules = [], name = '') => {
 };
 
 export const packages = use([
-  require('../app'),
-  require('../auth'),
-  require('../fetch'),
-  require('../home-page'),
-  require('../selectors'),
-  require('../styles'),
-  require('../ui'),
-  require('../user'),
+  require('@ktp/app'),
+  require('@ktp/auth'),
+  require('@ktp/fetch'),
+  require('@ktp/home'),
+  require('@ktp/theme'),
+  require('@ktp/ui'),
+  require('@ktp/user'),
 ]);

@@ -1,4 +1,4 @@
-import * as components from './components';
-import * as reducers from './reducers';
+import * as reducers from './reducer';
 
-export { components, reducers };
+export { reducers };
+export * from './components';

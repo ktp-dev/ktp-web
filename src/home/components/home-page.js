@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { h } from 'react-hyperscript-helpers';
 
-import { PageContainer } from '../../ui';
+import { PageContainer } from '@ktp/ui';
 import { LandingConn } from './landing';
 
 const StyledPageContainer = styled(PageContainer)`

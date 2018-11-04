@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { devices } from '../styles';
+import { devices } from '@ktp/theme';
 
 export const Container = styled.div`
     width: calc(100% - 60px);
