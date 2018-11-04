@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
 // device media queries for non-mobile -- design mobile first
-export default {
+export const devices = {
   small: (...args) =>
     css`
       @media (min-width: 480px) {

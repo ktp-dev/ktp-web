@@ -2,7 +2,7 @@ import { h } from 'react-hyperscript-helpers';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
-import { devices } from '../../styles';
+import { devices } from '@ktp/theme';
 
 const CenteredContainer = styled.div`
     display: flex;

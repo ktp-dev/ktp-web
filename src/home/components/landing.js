@@ -2,9 +2,9 @@ import { h } from 'react-hyperscript-helpers';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
-import { getTheme } from '../../selectors';
+import { getTheme } from '@ktp/theme';
+import { Card, PageHeading } from '@ktp/ui';
 import { getHomePageCards } from '../selectors';
-import { Card, PageHeading } from '../../ui';
 
 const Wrapper = styled.div`
   display: flex;

@@ -3,7 +3,7 @@ import { ConnectedRouter } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 import { connect } from 'react-redux';
 
-import { GlobalStyle } from '../../styles';
+import { GlobalStyle } from '@ktp/theme';
 
 import { Routes } from './routes';
 import { NavigatorConn } from './navigator';

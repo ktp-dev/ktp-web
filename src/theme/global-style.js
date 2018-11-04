@@ -1,10 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
-import Theme from './theme';
+import { theme } from './theme';
 
 export const GlobalStyle = createGlobalStyle`
 body {
     margin: 0px;
-    font-family: ${Theme.primaryFont}, sans-serif;
+    font-family: ${theme.primaryFont}, sans-serif;
     font-size: 14px;
     line-height: 1.42857143;
 }

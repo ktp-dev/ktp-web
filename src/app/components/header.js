@@ -5,10 +5,10 @@ import { connect } from 'react-redux';
 import { h } from 'react-hyperscript-helpers';
 
 // eslint-disable-next-line no-unused-vars
-import globalTheme from '../../styles/theme';
+import { theme as globalTheme, devices, getTheme } from '@ktp/theme';
+import { getUser } from '@ktp/user';
+
 import { routes } from '../constants';
-import { devices } from '../../styles';
-import { getTheme, getUser } from '../../selectors';
 
 const HeaderLogoImage = require('../../../static/icons/logo.png');
 const Favicon = require('../../../static/icons/favicon.png');

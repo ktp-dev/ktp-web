@@ -2,10 +2,8 @@ import { h } from 'react-hyperscript-helpers';
 import { Route, Switch } from 'react-router';
 
 import { routes } from '../constants';
-import { components as homePageComponents } from '../../home-page';
-const { HomePage } = homePageComponents;
-import { components as authComponents } from '../../auth';
-const { Login, Logout } = authComponents;
+import { HomePage } from '@ktp/home';
+import { Login, Logout } from '@ktp/auth';
 
 export const Routes = () =>
   h(Switch, [

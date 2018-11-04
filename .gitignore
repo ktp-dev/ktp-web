@@ -49,3 +49,5 @@ keys/*
 !keys/.gitkeep
 
 .DS_Store
+
+package-lock.json

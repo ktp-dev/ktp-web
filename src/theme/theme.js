@@ -2,7 +2,7 @@
 const generateBackgroundGradient = (angle) =>
   `linear-gradient(${angle}deg, rgba(0,256,256,1), rgba(111,195,129,1), rgba(41,128,185,1))`;
 
-export default {
+export const theme = {
   // Fonts
   primaryFont: 'Open Sans',
   headerFontSize: '50px',
