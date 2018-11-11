@@ -1,5 +1,5 @@
 # The Official Kappa Theta Pi Alpha Chapter Website
-[![Build Status](https://travis-ci.org/ktp-dev/ktp-web?branch=master)](https://travis-ci.org/ktp-dev/ktp-web)
+[![Build Status](https://travis-ci.org/ktp-dev/ktp-web.svg?branch=master)](https://travis-ci.org/ktp-dev/ktp-web)
 
 Made with :heart: by our brothers.
 
