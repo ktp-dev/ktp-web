@@ -7,4 +7,5 @@ export const routes = {
   CONTACT: '/contact',
   LOGIN: '/login',
   LOGOUT: '/logout',
+  PRODEV: '/professional-development',
 };

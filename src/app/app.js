@@ -11,6 +11,7 @@ require('es6-promise').polyfill();
 
 const App = () => {
   const store = configureStore();
+  window.store = store;
 
   return h(Provider, { store }, [h(RouterConn)]);
 };
