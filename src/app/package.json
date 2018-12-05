@@ -13,6 +13,8 @@
     "@ktp/theme": "1.0.0",
     "@ktp/user": "1.0.0",
     "@ktp/home": "1.0.0",
-    "@ktp/auth": "1.0.0"
+    "@ktp/auth": "1.0.0",
+    "@ktp/about-us": "1.0.0",
+    "@ktp/pro-dev": "1.0.0"
   }
 }
